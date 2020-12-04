@@ -19,7 +19,7 @@ export class VehicleAddComponent implements OnInit {
     date: [null, Validators.required],
     id_user: [null, Validators.required]
   });
-  users = [];
+  users = [{id:'', fname:'', lname: ''}];
 
   hasUnitNumber = false;
 

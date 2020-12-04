@@ -39,8 +39,8 @@
             <mat-form-field appearance="fill">
                 <mat-label>Owner</mat-label>
                     <select matNativeControl formControlName="id_user" required>
-                        <option *ngFor="let user of users; let i = index" [value]="users[i].id">
-                        {{users[i].fname+ ' ' +users[i].lname}}
+                        <option *ngFor="let user of users" [value]="user.id">
+                        {{user.fname+ ' ' +user.lname}}
                         </option>
                     </select>
                 </mat-form-field>
