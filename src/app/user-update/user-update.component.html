@@ -1,79 +1,61 @@
-<mat-card class="example-card card">
-  <mat-card-header>
-
-      <mat-card-title> Ajout de fournisseur </mat-card-title>
-      <mat-card-subtitle></mat-card-subtitle>
-  </mat-card-header>
-  <form (ngSubmit)="UpdateUser()" #inscrpform="ngForm">
-      <mat-dialog-content>
-
-
-          <mat-card-content>
-              <div class="example-container">
-
-                  <mat-form-field appearance="outline">
-                      <mat-label>Username</mat-label>
-                      <input matInput placeholder="Login" required #username="ngModel" name="login" [(ngModel)]="user.login">
-                      <mat-error *ngIf="login?.errors?.required">Username is required</mat-error>
-
-                  </mat-form-field>
-                  
-                  <mat-form-field appearance="outline">
-                      <mat-label>email</mat-label>
-                      <input matInput placeholder="E-mail" required #email="ngModel" name="email" [(ngModel)]="user.email">
-                      <mat-error *ngIf="email?.errors?.required">email is required</mat-error>
-
-                  </mat-form-field>
-
-                  <mat-form-field appearance="outline">
-                      <mat-label>firstName</mat-label>
-                      <input matInput placeholder="FirstName" required #lname="ngModel" name="fname" [(ngModel)]="user.fname">
-                      <mat-error *ngIf="fname?.errors?.required">Firstname is required</mat-error>
-
-                  </mat-form-field>
-
-                  <mat-form-field appearance="outline">
-                    <mat-label>firstName</mat-label>
-                    <input matInput placeholder="LastName" required #lname="ngModel" name="lname" [(ngModel)]="user.lname">
-                    <mat-error *ngIf="lirstName?.errors?.required">Firstname is required</mat-error>
-
-                </mat-form-field>
-
-                  <mat-form-field appearance="outline">
-                      <mat-label>name</mat-label>
-                      <input matInput placeholder="Password" required #password="ngModel" type="password"  name="password" [(ngModel)]="user.password">
-                      <mat-error *ngIf="password?.errors?.required">Name is required</mat-error>
-
-                  </mat-form-field>
-
-                  <mat-form-field appearance="outline">
-                      <mat-label>phoneNumber</mat-label>
-                      <input matInput placeholder="Phone" required #phone="ngModel"  name="phone" [(ngModel)]="user.phone">
-                      <mat-error *ngIf="phone?.errors?.required">Phone number is required</mat-error>
-
-                  </mat-form-field>
-
-                  <mat-form-field appearance="outline">
-                      <mat-label>address</mat-label>
-                      <input matInput placeholder="Brirthday" required #bdate="ngModel"  name="bdate" [(ngModel)]="user.bdate">
-                      <mat-error *ngIf="bdate?.errors?.required">Address is required</mat-error>
-
-                  </mat-form-field>
-
-
-                  
-
-
-              </div>
-          </mat-card-content>
-
-          <mat-card-actions>
-              <span class="flex-spacer"></span>
-              <button style="float: right" mat-button type="submit" [disabled]="inscrpform.form.invalid" class="background-primary text-floral-white">Modifier</button>
-          </mat-card-actions>
-
-      </mat-dialog-content>
-
-
+<form (ngSubmit)="onSubmit()" #inscrpform="ngForm">
+    <mat-card class="shipping-card">
+      <mat-card-header>
+        <mat-card-title>New User</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input matInput placeholder="Login" #login="ngModel" name="login" [(ngModel)]="user.login">
+              <mat-error *ngIf="login?.errors?.required">
+                First name is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input matInput type="password" placeholder="Password" name="password" #password="ngModel" [(ngModel)]="user.password">
+              <mat-error *ngIf="password?.errors?.required">
+                First name is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input matInput placeholder="First name" #fname="ngModel" name="fname" [(ngModel)]="user.fname">
+              <mat-error *ngIf="fname?.errors?.required">
+                First name is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input matInput placeholder="Last name" #lname="ngModel" name="lname" [(ngModel)]="user.lname">
+              <mat-error *ngIf="lname?.errors?.required">
+                Last name is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input matInput type="number" #phone="ngModel" name="phone" placeholder="Phone" [(ngModel)]="user.phone">
+              <mat-error *ngIf="phone?.errors?.required">
+                First name is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+         
+        </div>
+        
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" [disabled]="inscrpform.form.invalid" type="submit">Submit</button>
+      </mat-card-actions>
+    </mat-card>
   </form>
-</mat-card>
+  

@@ -3,7 +3,6 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
 import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
-import { from } from 'rxjs';
 import { UserService } from '../services/user.service'
 import { UserUpdateComponent } from "../user-update/user-update.component";
 import { UserAddComponent } from "../user-add/user-add.component";
@@ -31,7 +30,7 @@ export class UserListComponent implements AfterViewInit, OnInit {
     
     console.log("ok")
     this.userService.getUsers().subscribe(
-      users => {
+      (users: any) => {
         console.log(users)
         this.handler(users)
       }
@@ -61,11 +60,11 @@ export class UserListComponent implements AfterViewInit, OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       this.userService.getUsers().subscribe(
-        users => {
+        (users: any) => {
           this.dataSource.data = users.reverse();
         },
 
-        error => console.log(error),
+        (error: any) => console.log(error),
         () => {
           console.log("completed");
         }
@@ -88,15 +87,15 @@ export class UserListComponent implements AfterViewInit, OnInit {
     
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        this.userService.DeleteUsers(id).subscribe(result => {
+        this.userService.DeleteUsers(id).subscribe((result: any) => {
           this.OpenSuccModal("produit supprimé avec succès");
 
           this.userService.getUsers().subscribe(
-            users => {
+            (users: any) => {
               this.dataSource.data = users.reverse();
             },
 
-            error => console.log(error),
+            (error: any) => console.log(error),
             () => {
               console.log("completed");
             }
@@ -127,11 +126,11 @@ export class UserListComponent implements AfterViewInit, OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       this.userService.getUsers().subscribe(
-        Produits => {
+        (Produits: any) => {
           this.dataSource.data = Produits.reverse();
         },
 
-        error => console.log(error),
+        (error: any) => console.log(error),
         () => {
           console.log("completed");
         }

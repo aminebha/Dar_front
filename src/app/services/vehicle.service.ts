@@ -2,50 +2,49 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { baseURL } from '../shared/baseURL';
-import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
+export class VehicleService {
 
   constructor(private http: HttpClient) { }
 
-  getUsers (): Observable<any> {
+  getVehicles (): Observable<any> {
     const headers = new HttpHeaders(
       {
       'Content-Type': "text/plain",
     } );
-    return this.http.get<any>(baseURL + `users`, {headers: headers});
+    return this.http.get<any>(baseURL + `Vehicles`, {headers: headers});
              
   }
 
-  DeleteUsers(id: any): Observable<any> {
+  DeleteVehicles(id: any): Observable<any> {
     const headers = new HttpHeaders({
       ContentType: "application/json"
     });
   
-    return this.http.delete(baseURL + "users/" + id, { headers: headers });
+    return this.http.delete(baseURL + "Vehicles/" + id, { headers: headers });
   }
 
-  addUser(user: any): Observable<any> {
+  addVehicle(user: any): Observable<any> {
     console.log(user);
     const headers = new HttpHeaders(
       {
       'Content-Type': 'application/json',
     } );
     
-    return this.http.post<any>(baseURL + `users/add` , user, {headers: headers});
+    return this.http.post<any>(baseURL + `Vehicles/add` , user, {headers: headers});
 
   }
 
-  putUsers(user: any, id: any): Observable<any> {
+  putVehicle(user: any, id: any): Observable<any> {
     const headers = new HttpHeaders({
       ContentType: "application/json",
     });
     delete user.id 
     console.log(user)
-    return this.http.put(baseURL + 'users/'+id, user, {
+    return this.http.put(baseURL + 'Vehicles/'+id, user, {
       headers: headers
     });
   }

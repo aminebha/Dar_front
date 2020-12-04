@@ -1,1 +1,56 @@
-<p>vehicle-add works!</p>
+<form [formGroup]="vehicle" (ngSubmit)="onSubmit()" #inscrpform="ngForm">
+    <mat-card class="shipping-card">
+      <mat-card-header>
+        <mat-card-title>New Vehicle</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input matInput placeholder="Brand" formControlName="brand">
+              
+            </mat-form-field>
+          </div>
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input matInput placeholder="Model" formControlName="model">
+              
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input matInput placeholder="Number" formControlName="number">
+             
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input matInput type="date" placeholder="Date" formControlName="date">
+             
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <mat-form-field appearance="fill">
+                <mat-label>Owner</mat-label>
+                    <select matNativeControl formControlName="id_user" required>
+                        <option *ngFor="let user of users; let i = index" [value]="users[i].id">
+                        {{users[i].fname+ ' ' +users[i].lname}}
+                        </option>
+                    </select>
+                </mat-form-field>
+          </div>
+        </div>
+        
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" [disabled]="inscrpform.form.invalid" type="submit">Submit</button>
+      </mat-card-actions>
+    </mat-card>
+  </form>
+  

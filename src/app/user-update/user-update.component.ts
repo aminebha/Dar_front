@@ -1,5 +1,4 @@
-import { Inject, OnInit } from '@angular/core';
-import { Component } from '@angular/core';
+import { Inject, OnInit, Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MatDialog, MatDialogConfig, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ModalComponent } from '../modal/modal.component';
@@ -13,7 +12,7 @@ import { UserListComponent } from '../user-list/user-list.component';
 })
 export class UserUpdateComponent implements OnInit {
   user = { id:'',fname:'', login:'', lname:'', password:'', phone:'', email:'', bdate: ''};
-    
+  id: any;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
       private usersService: UserService ,
@@ -24,14 +23,17 @@ export class UserUpdateComponent implements OnInit {
   }
 
   ngOnInit() {
-    //this.user = this.data.data;
-    console.log(this.data)
+    this.user = this.data.data;
+    this.id = this.user.id
+    console.log(this.user)
   }
 
-  
+  onSubmit(){
+    this.UpdateUser()
+  }
   
   UpdateUser() {
-    this.usersService.putUsers(this.user, this.user.id).subscribe((data: any) => {
+    this.usersService.putUsers(this.user, this.id).subscribe((data: any) => {
 
       this.OpenSuccModal('vous êtes enregistré avec succès');
 
@@ -51,7 +53,7 @@ export class UserUpdateComponent implements OnInit {
 
     const dialogRef = this.dialog.open(ModalComponent, dialogConfig);
 
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe((result: any) => {
       this.UpdateDialog.close();
     });
   }

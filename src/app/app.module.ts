@@ -52,8 +52,7 @@ import { UserAddComponent } from './user-add/user-add.component';
     ConfirmationComponent,
     ModalComponent,
     UserUpdateComponent,
-    UserAddComponent,
-    FormsModule
+    UserAddComponent
   ],
   imports: [
     BrowserModule,
@@ -77,7 +76,8 @@ import { UserAddComponent } from './user-add/user-add.component';
     MatInputModule,
     MatSelectModule,
     MatRadioModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],
