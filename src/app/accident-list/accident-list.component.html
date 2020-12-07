@@ -1,4 +1,6 @@
 <div class="mat-elevation-z8">
+  <h1>Accidents</h1>
+  <br>
   <table mat-table class="full-width-table" matSort aria-label="Elements">
     <!-- Id Column -->
     <ng-container matColumnDef="id">
@@ -7,9 +9,69 @@
     </ng-container>
 
     <!-- Name Column -->
-    <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
-      <td mat-cell *matCellDef="let row">{{row.name}}</td>
+    <ng-container matColumnDef="user">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Vehicle owner</th>
+      <td mat-cell *matCellDef="let row">{{row.fname+' '+row.lname}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="vehicle">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Vehicle</th>
+      <td mat-cell *matCellDef="let row">{{row.brand+' '+row.model}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="left_hand_c">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Left hand</th>
+      <td mat-cell *matCellDef="let row">{{row.left_hand_c}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="right_hand_c">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Right handr</th>
+      <td mat-cell *matCellDef="let row">{{row.right_hand_c}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="shifter_c">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Shifter </th>
+      <td mat-cell *matCellDef="let row">{{row.shifter_c}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="driver_on_seat">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Driver on position</th>
+      <td mat-cell *matCellDef="let row">{{row.driver_on_seat}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="dirver_move">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Driver is moving</th>
+      <td mat-cell *matCellDef="let row">{{row.dirver_move}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="seatbelt">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Seatbelt</th>
+      <td mat-cell *matCellDef="let row">{{row.seatbelt}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="damage_score">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Damage score</th>
+      <td mat-cell *matCellDef="let row">{{row.damage_score}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="vehicle_state">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Vehicle state</th>
+      <td mat-cell *matCellDef="let row">{{row.vehicle_state}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="need_help">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Need a help</th>
+      <td mat-cell *matCellDef="let row">{{row.need_help}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="is_rescued">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Driver rescued</th>
+      <td mat-cell *matCellDef="let row">{{row.is_rescued}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="localisation">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Localisation</th>
+      <td mat-cell *matCellDef="let row">{{row.need_help}}<a href="https://www.google.com/maps/search/?api=1&query={{row.latitude}},{{row.longitude}}" >Position</a></td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
