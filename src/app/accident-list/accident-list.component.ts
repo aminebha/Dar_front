@@ -22,7 +22,7 @@ export class AccidentListComponent implements AfterViewInit, OnInit {
   dataSource = new MatTableDataSource<any>();
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['id','user','vehicle', 'left_hand_c', 'right_hand_c', 'shifter_c', 'driver_on_seat', 'dirver_move', 'seatbelt','damage_score','vehicle_state','need_help','is_rescued', 'localisation'];
+  displayedColumns = ['id','user','vehicle', 'v11', 'v12', 'v21', 'v22', 'dirver_move', 'seatbelt','damage_score','vehicle_state','need_help','is_rescued', 'localisation'];
 
   constructor(private accidentService: AccidentService, private dialog: MatDialog ){}
 
